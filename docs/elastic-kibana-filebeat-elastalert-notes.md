@@ -36,6 +36,15 @@ sudo pip install pyOpenSSL
 sudo python setup.py install
 sudo pip install "elasticsearch>=5.0.0"
 cp config.example.yaml config.yaml
+
+
+    pip3 install elastalert
+    elastalert-test-rule --config config.yaml example_rules/example_frequency.yaml
+    python3 setup.py install
+    sudo python3 setup.py install
+    python3 -m elastalert.elastalert --verbose --config config.yaml
+    elastalert-test-rule --config config.yaml example_rules/example_frequency.yaml
+
 ```
 Edit config.yaml and update es_host with IP address or dns name of the elasticsearch server
 ```
@@ -48,7 +57,9 @@ elastalert-test-rule --config config.yaml example_rules/example_frequency.yaml
 ```
 ### Running elastalert
 ```
-python -m elastalert.elastalert --verbose --rule example_frequency.yaml
+sudo apt install python3-pip
+pip3 install --upgrade jsonschema
+python3 -m elastalert.elastalert --verbose --rule example_frequency.yaml
 ```
 
 ## Postfix Gmail SMTP
